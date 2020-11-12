@@ -7,7 +7,7 @@ import { Poppins_400Regular,Poppins_600SemiBold,Poppins_700Bold } from '@expo-go
 import { Archivo_400Regular,Archivo_600SemiBold,Archivo_700Bold} from '@expo-google-fonts/archivo';
 
 
-import Routes from './src/routes';
+import Routes from './src/routes/routes';
 
 export default function App() {
 
