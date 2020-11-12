@@ -2,12 +2,12 @@ import React from 'react';
 import { StatusBar } from 'expo-status-bar';
 import { useFonts } from 'expo-font';
 
-
 import { Nunito_400Regular,Nunito_600SemiBold,Nunito_700Bold } from '@expo-google-fonts/nunito';
 import { Poppins_400Regular,Poppins_600SemiBold,Poppins_700Bold } from '@expo-google-fonts/poppins';
 import { Archivo_400Regular,Archivo_600SemiBold,Archivo_700Bold} from '@expo-google-fonts/archivo';
 
-import Home from './src/screen/Home';
+
+import Routes from './src/routes';
 
 export default function App() {
 
@@ -29,7 +29,7 @@ export default function App() {
   
   return (
     <>
-      <Home />
+      <Routes />
       <StatusBar style="light" />
     </>
   );
