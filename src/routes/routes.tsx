@@ -5,6 +5,8 @@ import { createStackNavigator } from '@react-navigation/stack';
 
 import Home from '../screen/Home';
 import GiveClasses from '../screen/GiveClasses';
+import Login from '../screen/Login';
+import Registration from '../screen/Registration';
 
 const { Navigator, Screen } = createStackNavigator();
 
@@ -14,6 +16,8 @@ export default function routes(){
       <Navigator screenOptions={{ headerShown: false }}>
         <Screen name="Home" component={Home} />
         <Screen name="GiveClasses" component={GiveClasses} />
+        <Screen name="Login" component={Login} />
+        <Screen name="Registration" component={Registration} />
       </Navigator>
     </NavigationContainer>  
   )
