@@ -1,7 +1,8 @@
-import React from 'react';
+import React, { useEffect, useState } from 'react';
 import { View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
+import api from '../services/api';
 
 import landingImg from '../../assets/landing.png'
 import studyIcon from '../../assets/icons/study.png';
@@ -13,6 +14,7 @@ import styles from './styles';
 const Home: React.FC = () => {
 
   const { navigate } = useNavigation();
+  const [totalConnections, setTotalConnections ] = useState(0);
 
   function handleNavigateToGiveClassesScreen(){
     navigate('GiveClasses')
@@ -21,6 +23,14 @@ const Home: React.FC = () => {
   function handleNavigateToStudyScreen(){
     navigate('Study');
   }
+
+  useEffect(() => {
+    api.get('connections').then(res => {
+      const { total } = res.data;
+
+      setTotalConnections(total);
+    })
+  }, []);
 
   return(
     <View style={styles.container}>
@@ -54,7 +64,7 @@ const Home: React.FC = () => {
       </View>
 
       <Text style={styles.totalConnections}>
-        Total de 285 conexões já realizadas. {' '}
+        Total de {totalConnections} conexões já realizadas. {' '}
         <Image source={heart} />
       </Text>
     </View>
