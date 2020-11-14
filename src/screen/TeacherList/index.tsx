@@ -1,43 +1,73 @@
-import React, { useEffect, useState } from 'react';
+import React, { useState } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
 
 import Header from '../../components/Header';
 import TeacherItem from '../TeacherItem';
 
+import { Feather } from '@expo/vector-icons';
 import styles from './styles';
+import { RectButton } from 'react-native-gesture-handler';
 
 const TeacherList: React.FC = () => {
+
+  const [isFiltersVisible, setIsFiltersVisible ] = useState(false);
+
+  function handleFiltersShowUp(){
+    setIsFiltersVisible(!isFiltersVisible)
+  };
+
   return (
     <View style={styles.container}>
-      <Header title="Proffys disponíveis">
+      <Header 
+        title="Proffys disponíveis"
+        headerRight={
+        <>
+          <RectButton onPress={handleFiltersShowUp}>
+            <Text style={{color: '#FFF', fontSize: 14 }}>Pesquise</Text>
+            <Feather name="filter" size={44} color="#04d361" />
+          </RectButton>
+        </>
+        }
+      >
 
-        <View style={styles.searchForm}>
-          <Text style={styles.label}>Matéria</Text>
-          <TextInput 
-            style={styles.input}
-            placeholder="Qual a matéria"
-          />
+        {isFiltersVisible && (
+          <View style={styles.searchForm}>
+            <Text style={styles.label}>Matéria</Text>
+            <TextInput 
+              style={styles.input}
+              placeholder="Qual a matéria"
+            />
 
-          <View style={styles.inputGroup}>
-            <View style={styles.inputBlock}>
+            <View style={styles.inputGroup}>
+              <View style={styles.inputBlock}>
 
-              <Text style={styles.label}>Dia da semana</Text>
-              <TextInput 
-                style={styles.input}
-                placeholder="Qual o dia?"
-              />
+                <Text style={styles.label}>Dia da semana</Text>
+                <TextInput 
+                  style={styles.input}
+                  placeholder="Qual o dia?"
+                />
+              </View>
+
+              <View style={styles.inputBlock}>
+                <Text style={styles.label}>Horário</Text>
+                <TextInput 
+                  style={styles.input}
+                  placeholder="Horário"
+                />
+              </View>
             </View>
+            <View style={styles.containerButtonSearch}>
 
-            <View style={styles.inputBlock}>
-              <Text style={styles.label}>Horário</Text>
-              <TextInput 
-                style={styles.input}
-                placeholder="Horário"
-              />
+              <RectButton
+                onPress={() => {}}
+                style={styles.buttonSearchProffys}
+                >
+                <Text style={styles.buttonSearchProffysText}>Buscar</Text>
+              </RectButton>
+            
             </View>
-
           </View>
-        </View>
+        )}
       </Header>
 
       <ScrollView

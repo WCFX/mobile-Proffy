@@ -32,6 +32,26 @@ const styles = StyleSheet.create({
     marginTop: 4,
     marginBottom: 16,
   },
+  containerButtonSearch: {
+    justifyContent: 'center',
+    alignItems: 'center',
+  },
+  buttonSearchProffys: {
+    width: '80%',
+    height: 54,
+    alignItems: 'center',
+    justifyContent: 'center',
+    paddingHorizontal: 20,
+    borderWidth: 1,
+    backgroundColor: '#04d361',
+    borderRadius: 8,
+    marginBottom: 10,
+  },
+  buttonSearchProffysText:{
+    color: '#fff',
+    fontFamily: 'Archivo_700Bold',
+    fontSize: 20,
+  },
   
 });
 
