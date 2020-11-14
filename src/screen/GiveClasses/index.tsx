@@ -3,8 +3,9 @@ import { View, Text, ImageBackground } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { useNavigation } from '@react-navigation/native';
 
-import styles from './styles';
 import background from '../../assets/give-classes-background.png';
+
+import styles from './styles';
 
 const GiveClasses: React.FC = () => {
 

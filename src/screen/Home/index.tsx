@@ -3,13 +3,12 @@ import { View, Text, Image } from 'react-native';
 import { useNavigation } from '@react-navigation/native';
 import { RectButton } from 'react-native-gesture-handler';
 
-
-import styles from './styles';
-
 import landingImg from '../../assets/landing.png'
 import studyIcon from '../../assets/icons/study.png';
 import giveClassesIcon from '../../assets/icons/give-classes.png';
 import heart from '../../assets/icons/heart.png';
+
+import styles from './styles';
 
 const Home: React.FC = () => {
 

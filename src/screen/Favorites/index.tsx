@@ -2,6 +2,7 @@ import React from 'react';
 import { ScrollView, View } from 'react-native';
 
 import Header from '../../components/Header';
+
 import TeacherItem from '../TeacherItem';
 
 
