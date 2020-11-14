@@ -15,7 +15,7 @@ interface HeaderProps {
 
 }
 
-const Header: React.FC<HeaderProps> = ({ title }) => {
+const Header: React.FC<HeaderProps> = ({ title, children }) => {
 
   const { navigate } = useNavigation();
 
@@ -34,6 +34,7 @@ const Header: React.FC<HeaderProps> = ({ title }) => {
       </View>
 
       <Text style={styles.title}>{title}</Text>
+      {children}
     </View>
   )
 }
