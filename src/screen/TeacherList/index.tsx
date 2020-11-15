@@ -11,6 +11,7 @@ import Header from '../../components/Header';
 import api from '../services/api';
 
 import styles from './styles';
+import { useFocusEffect } from '@react-navigation/native';
 
 const TeacherList: React.FC = () => {
 
@@ -53,6 +54,10 @@ const TeacherList: React.FC = () => {
       }
     })
   }
+
+  useFocusEffect(() => {
+    loadFavorites()
+  })
 
   return (
     <View style={styles.container}>
