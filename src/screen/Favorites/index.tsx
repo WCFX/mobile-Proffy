@@ -3,7 +3,7 @@ import { ScrollView, View } from 'react-native';
 
 import Header from '../../components/Header';
 
-import TeacherItem from '../TeacherItem';
+import TeacherItem from '../../components/TeacherItem';
 
 
 import styles from './styles';
@@ -20,12 +20,7 @@ const Favorites: React.FC = () => {
           paddingBottom: 16,
         }}
       >
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
-        <TeacherItem />
+       
       </ScrollView>
     </View>
   );
