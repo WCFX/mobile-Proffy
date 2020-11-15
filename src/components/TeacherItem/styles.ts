@@ -72,6 +72,9 @@ const styles = StyleSheet.create({
     alignItems: 'center',
     marginRight: 8
   },
+  favored: {
+    backgroundColor: '#fc0341',
+  },
   contactButton: {
     backgroundColor: '#04d361',
     flexDirection: 'row',

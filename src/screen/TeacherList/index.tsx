@@ -2,6 +2,8 @@ import React, { useState } from 'react';
 import { View, Text, TextInput, ScrollView } from 'react-native';
 import { RectButton } from 'react-native-gesture-handler';
 import { Feather } from '@expo/vector-icons';
+import AsyncStorage from '@react-native-community/async-storage';
+
 
 import TeacherItem, { Teacher } from '../../components/TeacherItem';
 import Header from '../../components/Header';
@@ -13,6 +15,7 @@ import styles from './styles';
 const TeacherList: React.FC = () => {
 
   const [isFiltersVisible, setIsFiltersVisible ] = useState(false);
+  const [favorites, setFavorites] = useState<number[]>([]);
   const [teachers, setTeachers ] = useState([]);
 
   const [subject, setSubject ] = useState('');
@@ -24,6 +27,9 @@ const TeacherList: React.FC = () => {
   };
 
   async function handleFiltersSubmit(){
+
+    loadFavorites();
+
     const res = await api.get('classes', {
       params: {
         subject,
@@ -33,6 +39,19 @@ const TeacherList: React.FC = () => {
     });
     setIsFiltersVisible(false)
     setTeachers(res.data)
+  }
+
+  function loadFavorites(){
+    AsyncStorage.getItem('favorites').then(res => {
+      if(res){
+        const favoredTeachers = JSON.parse(res);
+        const favoredTeachersIds = favoredTeachers.map((teacher : Teacher) => {
+          return teacher.id;
+        })
+
+        setFavorites(favoredTeachersIds);
+      }
+    })
   }
 
   return (
@@ -103,7 +122,13 @@ const TeacherList: React.FC = () => {
         }}
       >
         {teachers.map((teacher: Teacher) => {
-          return <TeacherItem key={teacher.id} teacher={teacher} />
+          return(
+            <TeacherItem
+              key={teacher.id}
+              teacher={teacher}
+              favored={favorites.includes(teacher.id)}
+            />
+          )
         })}
       </ScrollView>
     </View>
